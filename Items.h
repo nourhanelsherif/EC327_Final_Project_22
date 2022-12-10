@@ -20,6 +20,6 @@
             void setPrice(double in_price);
             void setRating(double in_rating);
             //Destructor
-            ~Items();
+            virtual ~Items(); // made virtual
     };
 #endif

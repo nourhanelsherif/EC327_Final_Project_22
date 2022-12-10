@@ -13,18 +13,24 @@ int main(){
     double price, rating;
     for (int i = 0; i < numParts; i++){
         cout << "Name: ";   //FIX TO HANDLE INPUT WITH SPACES I.E. STRINGS
-        cin >> partName;
-        cout << "Price: ";
+        getline(cin >> ws, partName); // FIXED
+        cout << "Price: "; // TEST PRICE INPUT
         cin >> price;
-        cout << "Rating: ";
+        cout << "Rating: "; // TEST RATING INPUT
         cin >> rating;
 
         itemPtr[i].setName(partName);   //INITIALIZE LIKE THIS
-        itemPtr[i].setPrice(rating);    //DO NOT DO itemPtr[i] = Items("name", price, rating);
-        itemPtr[i].setRating(rating);   //Will override, reinitialize, and destruct for some reason
+        itemPtr[i].setPrice(price);    //DO NOT DO itemPtr[i] = Items("name", price, rating);
+        itemPtr[i].setRating(rating);
     }
-
-    // cout << itemPtr[1].getName() << endl; //Test array initialization, just picked a random object with a random member var
+    //TESTING print out
+    /*
+    for (int i = 0; i < numParts; i++){
+        cout << itemPtr[i].getName() << endl;
+        cout << itemPtr[i].getPrice() << endl;
+        cout << itemPtr[i].getRating() << endl;
+    }
+    */
 
     delete [] itemPtr;
     return 0;
