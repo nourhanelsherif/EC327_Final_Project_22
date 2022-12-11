@@ -7,6 +7,7 @@
         private:
             string partName;
             double price, rating;
+            int quantity;
         public:
             //Constructors
             Items();
@@ -15,10 +16,13 @@
             string getName();
             double getPrice();
             double getRating();
+            int getQty();
             //Setters
+            void setAll(string, double, double, int);
             void setName(string in_name);
             void setPrice(double in_price);
             void setRating(double in_rating);
+            void setQty(int qty);
             //Destructor
             virtual ~Items(); // made virtual
     };
