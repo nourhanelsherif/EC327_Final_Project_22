@@ -1,5 +1,6 @@
 # EC327_Final_Project_22
 
+install everything:
 pip install tkinter
 
 pip install pandas
