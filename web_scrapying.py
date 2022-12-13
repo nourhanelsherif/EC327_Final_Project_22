@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import pandas
 import math
 import tkinter as tk
+from ItemsClass import Items
 
 def webScraping(input, user_qty):
 
@@ -145,9 +146,9 @@ def webScraping(input, user_qty):
 
     
     #output
-    data = list(zip(part_name, quantity, total_cost, list_needed, website))
-
-    if data==[]:
+    i = total_cost.index(min(total_cost))
+    data = Items(part_name[i], total_cost[i], quantity[i])
+    if data==None:
         errorMessage(input)
     else:
         return data
@@ -203,10 +204,10 @@ def generating(part_entry, qty_entry, window):
             elif(check == 2):
                 qty = int(widget.get())
                 user_qtyList.append(qty)
-
+    global items
+    items = []
     for i in range(0, len(user_qtyList)):
-        webScraping(inputList[i], user_qtyList[i])
-
+        items[i]=webScraping(inputList[i], user_qtyList[i])
 
 def partEnter():
     window = tk.Tk()
@@ -240,6 +241,7 @@ def partEnter():
 
     window.mainloop
 
+#MAIN STARTS HERE
 inputList = []
 user_qtyList = []
 output = []
